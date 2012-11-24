@@ -7,4 +7,10 @@ This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 
-/* So SASSy */
+/*
+So SASSy
+
+You can find the style.scss in the /sass/ directory, and the generated file in /stylesheets/.
+
+If you wish to have this file added to your <head></head> area again, remove all but "wp_enqueue_style( 'twentytwelve_sass', get_stylesheet_directory_uri() . '/stylesheets/style.css' );" inside the enqueue_twentytwelve_sass() function in the child functions.php.
+*/
