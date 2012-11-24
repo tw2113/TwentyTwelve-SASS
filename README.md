@@ -10,6 +10,8 @@ SASS ready, Compass.app compatible.
 
 Default style.css is present simply to register as a child theme. Edit the Name/URL field to your liking. Not added to wp_head() output.
 
+twentytwelvestyle.css for future reference and diff checking for parent theme changes.
+
 SCSS file located in /sass/, compiled css file located in /stylesheets/ and enqueued already.
 
 Feedback and forks always welcome. It'll make the SASS better.
