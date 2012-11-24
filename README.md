@@ -14,4 +14,4 @@ twentytwelvestyle.css for future reference and diff checking for parent theme ch
 
 SCSS file located in /sass/, compiled css file located in /stylesheets/ and enqueued already.
 
-Feedback and forks always welcome. It'll make the SASS better.
+Feedback and pull requests always welcome. It'll make the SASS better.
