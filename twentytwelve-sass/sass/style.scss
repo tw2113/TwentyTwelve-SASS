@@ -42,7 +42,7 @@ $eb: #ebebeb;
 $f9: #f9f9f9;
 $white: #fff;
 $black: #000;
-$c777: #777;
+$c75: #757575;
 $e1: #e1e1e1;
 $e3: #e3e3e3;
 $c6a: #6a6a6a;
@@ -220,9 +220,44 @@ article.format-status footer.entry-meta {
 	line-height: 2.181818182;
 }
 
+/* Form fields, general styles first */
+button,
+input,
+textarea {
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	font-family: inherit;
+	padding: 6px;
+	padding: 0.428571429rem;
+}
+button,
+input {
+    line-height: normal;
+}
+textarea {
+	font-size: 100%;
+	overflow: auto;
+	vertical-align: top;
+}
+
+/* Reset non-text input types */
+input[type="checkbox"],
+input[type="radio"],
+input[type="file"],
+input[type="hidden"],
+input[type="image"],
+input[type="color"] {
+	border: 0;
+	border-radius: 0;
+	padding: 0;
+}
+
+
 /* Buttons */
 .menu-toggle,
 input[type="submit"],
+input[type="button"],
+input[type="reset"],
 article.post-password-required input[type=submit],
 li.bypostauthor cite span {
 	padding: 6px 10px;
@@ -239,13 +274,22 @@ li.bypostauthor cite span {
 }
 
 .menu-toggle,
+button,
 input[type="submit"],
-article.post-password-required input[type=submit] {
+input[type="button"],
+input[type="reset"] {
 	cursor: pointer;
+}
+button[disabled],
+input[disabled] {
+	cursor: default;
 }
 
 .menu-toggle:hover,
+button:hover,
 input[type="submit"]:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
 article.post-password-required input[type=submit]:hover {
 	color: $c5e;
 	@include background-gradient($f9, $eb);
@@ -253,10 +297,11 @@ article.post-password-required input[type=submit]:hover {
 
 .menu-toggle:active,
 .menu-toggle.toggled-on,
+button:active;
 input[type="submit"]:active,
-article.post-password-required input[type=submit]:active,
-input[type="submit"].toggled-on {
-	color: $c777;
+input[type="button"]:active,
+input[type="reset"]:active {
+	color: $c75;
 	@include background-gradient($eb, $e1);
 	box-shadow: inset 0 0 8px 2px #c6c6c6, 0 1px 0 0 $f4;
 	border: none;
@@ -271,18 +316,6 @@ li.bypostauthor cite span {
 	padding: 0;
 }
 
-/* Form fields */
-input[type="text"],
-input[type="password"],
-input[type="email"],
-input[type="url"],
-textarea {
-	padding: 6px;
-	padding: 0.428571429rem;
-	font-family: inherit;
-	border: 1px solid #ccc;
-	border-radius: 3px;
-}
 /* Responsive images */
 .entry-content, .comment-content, .widget {
 	img {
@@ -350,7 +383,7 @@ img {
 	font-size: 12px;
 	font-size: 0.857142857rem;
 	line-height: 2;
-	color: $c777;
+	color: $c75;
 }
 img {
 	&.wp-smiley,
@@ -440,7 +473,7 @@ img {
 	}
 }
 .author-description p {
-	color: $c777;
+	color: $c75;
 	font-size: 13px;
 	font-size: 0.928571429rem;
 	line-height: 1.846153846;
@@ -544,7 +577,7 @@ a {
 		font-size: 13px;
 		font-size: 0.928571429rem;
 		line-height: 1.846153846;
-		color: $c777;
+		color: $c75;
 	}
 }
 
@@ -612,7 +645,7 @@ section[role="banner"] {
 			margin-bottom: 1.714285714rem;
 		}
 		a {
-			color: $c777;
+			color: $c75;
 			&:hover {
 				color: $c21759b;
 			}
@@ -657,7 +690,7 @@ footer[role="contentinfo"] {
 	}
 }
 
-/* =Main content
+/* =Main content and comment content
 -------------------------------------------------------------- */
 
 .entry-meta {
@@ -690,12 +723,12 @@ footer[role="contentinfo"] {
 		font-size: 13px;
 		font-size: 0.928571429rem;
 		line-height: 1.846153846;
-		color: $c777;
+		color: $c75;
 	}
 }
 .comments-link, .entry-meta {
 	a {
-		color: $c777;
+		color: $c75;
 		&:hover {
 			color: $c21759b;
 		}
@@ -705,7 +738,7 @@ footer[role="contentinfo"] {
 article.sticky .featured-post {
 	border-top: 4px double $ed;
 	border-bottom: 4px double $ed;
-	color: $c777;
+	color: $c75;
 	font-size: 13px;
 	font-size: 0.928571429rem;
 	line-height: 3.692307692;
@@ -714,10 +747,11 @@ article.sticky .featured-post {
 	text-align: center;
 }
 .entry-content,
-.entry-summary {
+.entry-summary,
+.mu_register {
 	line-height: 1.714285714;
 }
-.entry-content, .comment-content {
+.entry-content, .comment-content, .mu_register {
 	h1, h2, h3, h4, h5, h6 {
 		margin: 24px 0;
 		margin: 1.714285714rem 0;
@@ -833,7 +867,7 @@ article.sticky .featured-post {
 	}
 	table {
 		border-bottom: 1px solid $ed;
-		color: $c777;
+		color: $c75;
 		font-size: 12px;
 		font-size: 0.857142857rem;
 		line-height: 2;
@@ -888,6 +922,10 @@ img {
 	margin-bottom: 72px;
 	margin-bottom: 5.142857143rem;
 	border-bottom: 4px double $ed;
+	word-wrap: break-word;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	hyphens: auto;
 }
 .page-links {
 	clear: both;
@@ -899,12 +937,15 @@ footer.entry-meta {
 	font-size: 13px;
 	font-size: 0.928571429rem;
 	line-height: 1.846153846;
-	color: $c777;
+	color: $c75;
 }
 .single-author .entry-meta .by-author {
 	display: none;
 }
-
+.mu_register h2 {
+	color: $c75;
+	font-weight: normal;
+}
 
 /* =Archives
 -------------------------------------------------------------- */
@@ -918,7 +959,7 @@ footer.entry-meta {
 	border-bottom: 1px solid $ed;
 }
 .archive-meta {
-	color: $c777;
+	color: $c75;
 	font-size: 12px;
 	font-size: 0.857142857rem;
 	line-height: 2;
@@ -1064,7 +1105,7 @@ article.format-quote {
 		header {
 			display: inline-block;
 			a {
-				color: $c777;
+				color: $c75;
 				&:hover {
 					color: $c21759b;
 				}
@@ -1175,13 +1216,15 @@ article.format-quote {
 	font-size: 10px;
 	font-size: 0.714285714rem;
 }
-a.comment-reply-link {
+a.comment-reply-link,
+a.comment-edit-link {
 	font-size: 13px;
 	font-size: 0.928571429rem;
 	line-height: 1.846153846;
 	color: $c68;
 }
-a.comment-reply-link:hover {
+a.comment-reply-link:hover,
+a.comment-edit-link:hover {
 	color: $c21759b;
 }
 .commentlist {
@@ -1281,7 +1324,7 @@ a.comment-reply-link:hover {
 				list-style-type: square;
 				list-style-position: inside;
 				a {
-					color: $c777;
+					color: $c75;
 					&:hover {
 						color: $c21759b;
 					}
@@ -1567,6 +1610,7 @@ img#wpstats {
 @media print {
 	body {
 		background: none !important;
+		color: #000;
 		font-size: 10pt;
 	}
 	footer a[rel=bookmark]:link:after,
@@ -1596,12 +1640,18 @@ img#wpstats {
 		margin-bottom: 72px;
 		margin-bottom: 5.142857143rem;
 		text-align: left;
+		h1, h2 {
+			a {
+				color: #000;
+			}
+		}
 		h1 {
 			font-size: 21pt;
 			line-height: 1;
 			text-align: left;
 		}
 		h2 {
+			color: #000;
 			font-size: 10pt;
 			text-align: left;
 		}
